@@ -6,5 +6,7 @@ public class Main {
         System.out.println("new");
         System.out.println("branch");
         System.out.println("!!!");
+
+        System.out.println("New feature branch!!!");
     }
 }
