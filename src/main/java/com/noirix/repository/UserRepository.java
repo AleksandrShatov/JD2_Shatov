@@ -8,6 +8,6 @@ public interface UserRepository extends CrudOperations<Long, User> {
 
     List<User> findUsersByQuery(String query);
 
-    List<User> getPage(int limit, int offset);
+    Double getUserExpensiveCarPrice(Integer userId);
 
 }

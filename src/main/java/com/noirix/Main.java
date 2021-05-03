@@ -1,10 +1,7 @@
 package com.noirix;
 
-import com.noirix.domain.User;
 import com.noirix.repository.UserRepository;
 import com.noirix.repository.impl.UserRepositoryImpl;
-
-import java.sql.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,13 +22,17 @@ public class Main {
 //        }
 
         // Save user
-        User user = new User();
-        user.setName("Test2");
-        user.setSurname("Save2");
-        user.setLogin("test_save_2");
-        user.setWeight(120f);
-        user.setBirthDate(new Date(12000000L));
+//        User user = new User();
+//        user.setName("Test2");
+//        user.setSurname("Save2");
+//        user.setLogin("test_save_2");
+//        user.setWeight(120f);
+//        user.setBirthDate(new Date(12000000L));
+//
+//        System.out.println(userRepository.save(user));
 
-        System.out.println(userRepository.save(user));
+        // Check function call
+        System.out.println(userRepository.getUserExpensiveCarPrice(12));
+
     }
 }

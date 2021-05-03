@@ -176,7 +176,35 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public List<User> getPage(int limit, int offset) {
-        return null;
+    public Double getUserExpensiveCarPrice(Integer userId) {
+        final String findPriceFunction = "select get_user_expensive_car(?)";
+
+        Connection connection;
+        PreparedStatement statement;
+        ResultSet rs;
+
+        try {
+            Class.forName(POSTGRES_DRIVER_NAME);
+        } catch (ClassNotFoundException e) {
+            System.err.println("JDBC Driver Cannot be loaded!");
+            throw new RuntimeException("JDBC Driver Cannot be loaded!");
+        }
+
+        String jdbcURL = StringUtils.join(DATABASE_URL, DATABASE_PORT, DATABASE_NAME);
+
+        try {
+            connection = DriverManager.getConnection(jdbcURL, DATABASE_LOGIN, DATABASE_PASSWORD);
+            statement = connection.prepareStatement(findPriceFunction);
+            statement.setInt(1, userId);
+            rs = statement.executeQuery();
+
+            //Row mapping
+            rs.next();
+            return rs.getDouble("get_user_expensive_car");
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            throw new RuntimeException("SQL Issues!");
+        }
     }
 }
