@@ -3,6 +3,11 @@
     <title>Bye Page!</title>
 </head>
 <body>
-<h2>Students Demo - Bye Page</h2>
+<div>
+    <h2>Students Demo - Bye Page</h2>
+</div>
+<div>
+    ${userName}
+</div>
 </body>
 </html>
