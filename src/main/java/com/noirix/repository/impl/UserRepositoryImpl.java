@@ -3,20 +3,17 @@ package com.noirix.repository.impl;
 import com.noirix.domain.User;
 import com.noirix.exception.NoSuchEntityException;
 import com.noirix.repository.UserRepository;
-import org.apache.commons.lang3.StringUtils;
+import com.noirix.util.DatabasePropertiesReader;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.noirix.util.DatabasePropertiesReader.*;
+
 public class UserRepositoryImpl implements UserRepository {
 
-    public static final String POSTGRES_DRIVER_NAME = "org.postgresql.Driver";
-    public static final String DATABASE_URL = "jdbc:postgresql://localhost:";
-    public static final int DATABASE_PORT = 5432;
-    public static final String DATABASE_NAME = "/student_demo";
-    public static final String DATABASE_LOGIN = "postgres";
-    public static final String DATABASE_PASSWORD = "postgres";
+    private DatabasePropertiesReader reader = DatabasePropertiesReader.getInstance();
 
     public static final String ID = "id";
     public static final String NAME = "name";
@@ -36,16 +33,18 @@ public class UserRepositoryImpl implements UserRepository {
         ResultSet rs;
 
         try {
-            Class.forName(POSTGRES_DRIVER_NAME);
+            Class.forName(reader.getProperty(DATABASE_DRIVER_NAME));
         } catch (ClassNotFoundException e) {
             System.err.println("JDBC Driver Cannot be loaded!");
             throw new RuntimeException("JDBC Driver Cannot be loaded!");
         }
 
-        String jdbcURL = StringUtils.join(DATABASE_URL, DATABASE_PORT, DATABASE_NAME);
+        String jdbcURL = reader.getProperty(DATABASE_URL);
+        String login = reader.getProperty(DATABASE_LOGIN);
+        String password = reader.getProperty(DATABASE_PASSWORD);
 
         try {
-            connection = DriverManager.getConnection(jdbcURL, DATABASE_LOGIN, DATABASE_PASSWORD);
+            connection = DriverManager.getConnection(jdbcURL, login, password);
             statement = connection.createStatement();
             rs = statement.executeQuery(findAllQuery);
 
@@ -79,13 +78,15 @@ public class UserRepositoryImpl implements UserRepository {
         ResultSet rs;
 
         try {
-            Class.forName(POSTGRES_DRIVER_NAME);
+            Class.forName(reader.getProperty(DATABASE_DRIVER_NAME));
         } catch (ClassNotFoundException e) {
             System.err.println("JDBC Driver Cannot be loaded!");
             throw new RuntimeException("JDBC Driver Cannot be loaded!");
         }
 
-        String jdbcURL = StringUtils.join(DATABASE_URL, DATABASE_PORT, DATABASE_NAME);
+        String jdbcURL = reader.getProperty(DATABASE_URL);
+        String login = reader.getProperty(DATABASE_LOGIN);
+        String password = reader.getProperty(DATABASE_PASSWORD);
 
         try {
             connection = DriverManager.getConnection(jdbcURL, DATABASE_LOGIN, DATABASE_PASSWORD);
@@ -122,13 +123,15 @@ public class UserRepositoryImpl implements UserRepository {
         PreparedStatement statement;
 
         try {
-            Class.forName(POSTGRES_DRIVER_NAME);
+            Class.forName(reader.getProperty(DATABASE_DRIVER_NAME));
         } catch (ClassNotFoundException e) {
             System.err.println("JDBC Driver Cannot be loaded!");
             throw new RuntimeException("JDBC Driver Cannot be loaded!");
         }
 
-        String jdbcURL = StringUtils.join(DATABASE_URL, DATABASE_PORT, DATABASE_NAME);
+        String jdbcURL = reader.getProperty(DATABASE_URL);
+        String login = reader.getProperty(DATABASE_LOGIN);
+        String password = reader.getProperty(DATABASE_PASSWORD);
 
         try {
             connection = DriverManager.getConnection(jdbcURL, DATABASE_LOGIN, DATABASE_PASSWORD);
@@ -184,16 +187,18 @@ public class UserRepositoryImpl implements UserRepository {
         ResultSet rs;
 
         try {
-            Class.forName(POSTGRES_DRIVER_NAME);
+            Class.forName(reader.getProperty(DATABASE_DRIVER_NAME));
         } catch (ClassNotFoundException e) {
             System.err.println("JDBC Driver Cannot be loaded!");
             throw new RuntimeException("JDBC Driver Cannot be loaded!");
         }
 
-        String jdbcURL = StringUtils.join(DATABASE_URL, DATABASE_PORT, DATABASE_NAME);
+        String jdbcURL = reader.getProperty(DATABASE_URL);
+        String login = reader.getProperty(DATABASE_LOGIN);
+        String password = reader.getProperty(DATABASE_PASSWORD);
 
         try {
-            connection = DriverManager.getConnection(jdbcURL, DATABASE_LOGIN, DATABASE_PASSWORD);
+            connection = DriverManager.getConnection(jdbcURL, login, password);
             statement = connection.prepareStatement(findPriceFunction);
             statement.setInt(1, userId);
             rs = statement.executeQuery();

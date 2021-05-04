@@ -1,5 +1,6 @@
 package com.noirix;
 
+import com.noirix.domain.User;
 import com.noirix.repository.UserRepository;
 import com.noirix.repository.impl.UserRepositoryImpl;
 
@@ -10,9 +11,9 @@ public class Main {
 //        userRepository.findAll().stream().forEach(User::toString);
 
         // Find all users
-//        for (User user : userRepository.findAll()) {
-//            System.out.println(user);
-//        }
+        for (User user : userRepository.findAll()) {
+            System.out.println(user);
+        }
 
         // Find one user
 //        try {
@@ -32,7 +33,7 @@ public class Main {
 //        System.out.println(userRepository.save(user));
 
         // Check function call
-        System.out.println(userRepository.getUserExpensiveCarPrice(12));
+//        System.out.println(userRepository.getUserExpensiveCarPrice(12));
 
     }
 }
