@@ -1,5 +1,8 @@
 package com.noirix.domain;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.Objects;
 
 public class Location {
@@ -7,13 +10,13 @@ public class Location {
     private Long id;
     private String country;
     private String city;
-    private Float latitude;
-    private Float longitude;
+    private Double latitude;
+    private Double longitude;
 
     public Location() {
     }
 
-    public Location(Long id, String country, String city, Float latitude, Float longitude) {
+    public Location(Long id, String country, String city, Double latitude, Double longitude) {
         this.id = id;
         this.country = country;
         this.city = city;
@@ -45,19 +48,19 @@ public class Location {
         this.city = city;
     }
 
-    public Float getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Float latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public Float getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Float longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
@@ -72,5 +75,10 @@ public class Location {
     @Override
     public int hashCode() {
         return Objects.hash(id, country, city, latitude, longitude);
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
     }
 }

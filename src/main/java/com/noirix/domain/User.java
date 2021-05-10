@@ -11,7 +11,7 @@ public class User {
     private Long id;
     private String name;
     private String surname;
-    private Date birthDate;
+    private Date birthDate = new Date(System.currentTimeMillis());
     private String login;
     private Float weight;
 

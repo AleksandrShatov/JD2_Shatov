@@ -53,10 +53,10 @@ public class FrontController extends HttpServlet {
 
     private void resolveGetRequestCommands(HttpServletRequest req, Commands commandName) {
 
-        //http://localhost:8080/test/FrontController?command=findAll&page=0&limit=10 (add offset to query)
+        //  http://localhost:8080/JD2_Shatov/FrontController?command=findAll&page=0&limit=10 (add offset to query)
 
         switch (commandName) {
-            //     http://localhost:8080/test/FrontController?command=findAll
+            //     http://localhost:8080/JD2_Shatov/FrontController?command=findAll
             case FIND_ALL:
                 String page = req.getParameter("page");
                 String limit = req.getParameter("limit");
@@ -66,7 +66,7 @@ public class FrontController extends HttpServlet {
 
                 req.setAttribute("users", userRepository.findAll());
                 break;
-            //     http://localhost:8080/test/FrontController?command=findById&id=10
+            //     http://localhost:8080/JD2_Shatov/FrontController?command=findById&id=2
             case FIND_BY_ID:
                 String id = req.getParameter("id");
                 long userId = Long.parseLong(id);
