@@ -4,6 +4,7 @@ import com.noirix.domain.User;
 import com.noirix.exception.NoSuchEntityException;
 import com.noirix.repository.UserRepository;
 import com.noirix.util.DatabasePropertiesReader;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ import java.util.List;
 
 import static com.noirix.util.DatabasePropertiesReader.*;
 
+//@Component
+//@Repository("UserRep")
+@Repository
 public class UserRepositoryImpl implements UserRepository {
 
     private DatabasePropertiesReader reader = DatabasePropertiesReader.getInstance();

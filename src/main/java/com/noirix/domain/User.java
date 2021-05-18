@@ -18,6 +18,12 @@ public class User {
     public User() {
     }
 
+    public User(Long id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
     public User(Long id, String name, String surname, Date birthDate, String login, Float weight) {
         this.id = id;
         this.name = name;

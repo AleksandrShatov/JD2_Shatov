@@ -1,0 +1,15 @@
+
+u
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(„Ëˆú8îÆÁ˜“/
+U	java:S106B"9Replace this use of System.out or System.err by a logger.(Ô÷è8õÇ©Ã“/
+Z	java:S106C"9Replace this use of System.out or System.err by a logger.(Üƒ¡ıÿÿÿÿ8õÇ©Ã“/
+H
+java:S1172T"+Remove this unused method parameter "resp".(Šá›Í8ŒçİÃ“/
+g	java:S112o"FDefine and throw a dedicated exception instead of using a generic one.(Ê“Åıÿÿÿÿ8ºé¬Ã“/
+
+java:S1989"lHandle the following exceptions that could be thrown by "processGetRequests": ServletException, IOException.(÷ñàöúÿÿÿÿ8À±¨Ã“/
+X	java:S125g"<This block of commented-out lines of code should be removed.(­¢åå8ºé¬Ã“/
+W
+java:S1854f":Remove this useless assignment to local variable "userId".(ğ¡Ã÷8ºé¬Ã“/
+h
+java:S1192E"FDefine a constant instead of duplicating this literal "users" 5 times.(¬é‡‰üÿÿÿÿ8ºé¬Ã“/

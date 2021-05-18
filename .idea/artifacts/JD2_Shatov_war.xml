@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JD2_Shatov:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>JD2_Shatov</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="JD2_Shatov-1.0.20210401213700.war">
+      <element id="artifact" artifact-name="JD2_Shatov:war exploded" />
+    </root>
+  </artifact>
+</component>

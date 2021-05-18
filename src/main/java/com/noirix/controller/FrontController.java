@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Collections;
 
+//@Controller
+//@RestController
 public class FrontController extends HttpServlet {
 
     private UserRepository userRepository = new UserRepositoryImpl();

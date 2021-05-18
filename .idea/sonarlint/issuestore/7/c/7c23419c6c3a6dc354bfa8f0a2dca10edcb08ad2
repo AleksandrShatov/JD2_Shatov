@@ -1,0 +1,55 @@
+
+h	java:S112ô"FDefine and throw a dedicated exception instead of using a generic one.(¾ Ñèûÿÿÿÿ8Æ…««•/
+r
+java:S2095Â"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(æ†ÁÆûÿÿÿÿ8§²öª•/
+q
+java:S2095X"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¥Î÷˜şÿÿÿÿ8à’©ì”/
+c	java:S112É"FDefine and throw a dedicated exception instead of using a generic one.(„ßµ8¼Òıª•/
+[	java:S106Í"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8²ñ«•/
+g	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(î•öıÿÿÿÿÿ8§Çğë”/
+h	java:S112’"FDefine and throw a dedicated exception instead of using a generic one.(¾ Ñèûÿÿÿÿ8ËËõ«•/
+n
+java:S1192H"LDefine a constant instead of duplicating this literal "SQL Issues!" 7 times.(¾ Ñèûÿÿÿÿ8äãô©•/
+e
+java:S2095y"HUse try-with-resources or close this "Connection" in a "finally" clause.(¯í¹·8œİñ©•/
+e
+java:S20954"HUse try-with-resources or close this "Connection" in a "finally" clause.(¯í¹·8ÍÅì”/
+f
+java:S2095Ÿ"HUse try-with-resources or close this "Connection" in a "finally" clause.(¯í¹·8ƒ˜Ãª•/
+j
+java:S2095†"GUse try-with-resources or close this "Statement" in a "finally" clause.(‡²€·ıÿÿÿÿ8ğ¿ø«•/
+c	java:S112Š"FDefine and throw a dedicated exception instead of using a generic one.(‡ëˆş8ÓÔª•/
+q
+java:S2095z"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(£İ´ğÿÿÿÿÿ8µ¥ö©•/
+˜
+java:S2159Æ"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(›±æÕ8é†ùª•/
+f
+java:S2095Á"HUse try-with-resources or close this "Connection" in a "finally" clause.(¯í¹·8ı´õª•/
+h	java:S112±"FDefine and throw a dedicated exception instead of using a generic one.(¾ Ñèûÿÿÿÿ8ÕìÄª•/
+g	java:S112l"FDefine and throw a dedicated exception instead of using a generic one.(¾ Ñèûÿÿÿÿ8Ó¢ì”/
+Z	java:S106G"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8ÊĞƒì”/
+f
+java:S2095…"HUse try-with-resources or close this "Connection" in a "finally" clause.(¯í¹·8İºó«•/
+h	java:S112‘"FDefine and throw a dedicated exception instead of using a generic one.(¾ Ñèûÿÿÿÿ8Ÿ´ô©•/
+g	java:S112H"FDefine and throw a dedicated exception instead of using a generic one.(¾ Ñèûÿÿÿÿ8‹‹…ì”/
+[	java:S106°"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8ÕìÄª•/
+j
+java:S2095á"GUse try-with-resources or close this "Statement" in a "finally" clause.(‡²€·ıÿÿÿÿ8µ®«•/
+a
+java:S2583Æ"CChange this condition so that it does not always evaluate to "true"(›±æÕ8¼Òıª•/
+[	java:S106‘"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8ËËõ«•/
+m
+java:S2095 "OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(â«¨¾8üÆª•/
+h	java:S112Î"FDefine and throw a dedicated exception instead of using a generic one.(¾ Ñèûÿÿÿÿ8²ñ«•/
+[	java:S106"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8”—ó©•/
+k
+java:S2095|"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ıŠõ<8•Áø©•/
+[	java:S106ó"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8Æ…««•/
+e
+java:S2095W"HUse try-with-resources or close this "Connection" in a "finally" clause.(¯í¹·8Ó¢ì”/
+U	java:S106""9Replace this use of System.out or System.err by a logger.(Ì›Ö8ùÉíë”/
+i
+java:S20955"GUse try-with-resources or close this "Statement" in a "finally" clause.(‡²€·ıÿÿÿÿ8Ü×’ì”/
+Z	java:S106k"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8Ó¢ì”/
+f
+java:S2095à"HUse try-with-resources or close this "Connection" in a "finally" clause.(¯í¹·8­¤©«•/

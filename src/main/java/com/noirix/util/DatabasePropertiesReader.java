@@ -2,6 +2,7 @@ package com.noirix.util;
 
 import java.util.ResourceBundle;
 
+//@Service
 public class DatabasePropertiesReader {
     private static DatabasePropertiesReader instance;
     private ResourceBundle resourceBundle;
