@@ -2,6 +2,7 @@ package com.noirix;
 
 import com.noirix.domain.User;
 import com.noirix.repository.UserRepository;
+import com.noirix.util.StringUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class SpringContextTester {
@@ -17,6 +18,9 @@ public class SpringContextTester {
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext("com.noirix");
 
         //UserRepository userRepository = annotationConfigApplicationContext.getBean(UserRepository.class);
+
+        System.out.println(annotationConfigApplicationContext.getBean("getStringUtils", StringUtils.class).concat("First", "second"));
+
         UserRepository userRepository = annotationConfigApplicationContext.getBean("userRepositoryImpl", UserRepository.class);
 
         for (User user : userRepository.findAll()) {

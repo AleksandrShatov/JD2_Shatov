@@ -1,23 +1,30 @@
 package com.noirix.repository.impl;
 
+import com.noirix.beans.DatabaseProperties;
 import com.noirix.domain.User;
 import com.noirix.exception.NoSuchEntityException;
 import com.noirix.repository.UserRepository;
-import com.noirix.util.DatabasePropertiesReader;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.noirix.util.DatabasePropertiesReader.*;
-
 //@Component
 //@Repository("UserRep")
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 
-    private DatabasePropertiesReader reader = DatabasePropertiesReader.getInstance();
+    @Autowired
+    @Qualifier("databaseProperties")
+
+    //@Inject
+    //@Named - JSR-330
+    private DatabaseProperties properties;
+    // = getAnnotationSpringContext().getBean(DatabaseProperties.class); - will work with @Autowired
+    // = getAnnotationSpringContext().getBean("databaseProperties", DatabaseProperties.class); - will work with @Autowired + @Qualifier
 
     public static final String ID = "id";
     public static final String NAME = "name";
@@ -26,13 +33,13 @@ public class UserRepositoryImpl implements UserRepository {
     public static final String LOGIN = "login";
     public static final String WEIGHT = "weight";
 
-    private String jdbcURL = reader.getProperty(DATABASE_URL);
-    private String login = reader.getProperty(DATABASE_LOGIN);
-    private String password = reader.getProperty(DATABASE_PASSWORD);
+    private String jdbcURL = properties.getUrl();
+    private String login = properties.getLogin();
+    private String password = properties.getPassword();
 
     private void loadDriver() {
         try {
-            Class.forName(reader.getProperty(DATABASE_DRIVER_NAME));
+            Class.forName(properties.getDriverName());
         } catch (ClassNotFoundException e) {
             System.err.println("JDBC Driver Cannot be loaded!");
             throw new RuntimeException("JDBC Driver Cannot be loaded!");
