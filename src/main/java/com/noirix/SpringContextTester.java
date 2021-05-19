@@ -3,6 +3,7 @@ package com.noirix;
 import com.noirix.domain.User;
 import com.noirix.repository.UserRepository;
 import com.noirix.util.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class SpringContextTester {
@@ -15,6 +16,9 @@ public class SpringContextTester {
 //        System.out.println(user1);
 //        System.out.println(user2);
 
+        Logger log = Logger.getLogger(SpringContextTester.class);
+        log.info("I am working!");
+
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext("com.noirix");
 
         //UserRepository userRepository = annotationConfigApplicationContext.getBean(UserRepository.class);
@@ -26,6 +30,12 @@ public class SpringContextTester {
         for (User user : userRepository.findAll()) {
             System.out.println(user);
         }
+
+//        LocationRepository locationRepository = annotationConfigApplicationContext.getBean("locationRepositoryImpl", LocationRepositoryImpl.class);
+//
+//        for (Location location : locationRepository.findAll()) {
+//            System.out.println(location);
+//        }
 
     }
 }

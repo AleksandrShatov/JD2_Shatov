@@ -33,10 +33,6 @@ public class UserRepositoryImpl implements UserRepository {
     public static final String LOGIN = "login";
     public static final String WEIGHT = "weight";
 
-    private String jdbcURL = properties.getUrl();
-    private String login = properties.getLogin();
-    private String password = properties.getPassword();
-
     private void loadDriver() {
         try {
             Class.forName(properties.getDriverName());
@@ -57,6 +53,10 @@ public class UserRepositoryImpl implements UserRepository {
         ResultSet rs;
 
         loadDriver();
+
+        String jdbcURL = properties.getUrl();
+        String login = properties.getLogin();
+        String password = properties.getPassword();
 
         try {
             connection = DriverManager.getConnection(jdbcURL, login, password);
@@ -94,6 +94,10 @@ public class UserRepositoryImpl implements UserRepository {
 
         loadDriver();
 
+        String jdbcURL = properties.getUrl();
+        String login = properties.getLogin();
+        String password = properties.getPassword();
+
         try {
             connection = DriverManager.getConnection(jdbcURL, login, password);
             statement = connection.prepareStatement(findById);
@@ -129,6 +133,10 @@ public class UserRepositoryImpl implements UserRepository {
         PreparedStatement statement;
 
         loadDriver();
+
+        String jdbcURL = properties.getUrl();
+        String login = properties.getLogin();
+        String password = properties.getPassword();
 
         try {
             connection = DriverManager.getConnection(jdbcURL, login, password);
@@ -169,6 +177,10 @@ public class UserRepositoryImpl implements UserRepository {
 
         loadDriver();
 
+        String jdbcURL = properties.getUrl();
+        String login = properties.getLogin();
+        String password = properties.getPassword();
+
         try {
             connection = DriverManager.getConnection(jdbcURL, login, password);
             statement = connection.prepareStatement(updateQuery);
@@ -202,6 +214,10 @@ public class UserRepositoryImpl implements UserRepository {
 
         loadDriver();
 
+        String jdbcURL = properties.getUrl();
+        String login = properties.getLogin();
+        String password = properties.getPassword();
+
         try {
             connection = DriverManager.getConnection(jdbcURL, login, password);
             statement = connection.prepareStatement(deleteQuery);
@@ -230,6 +246,10 @@ public class UserRepositoryImpl implements UserRepository {
         ResultSet rs;
 
         loadDriver();
+
+        String jdbcURL = properties.getUrl();
+        String login = properties.getLogin();
+        String password = properties.getPassword();
 
         try {
             connection = DriverManager.getConnection(jdbcURL, login, password);
@@ -266,6 +286,10 @@ public class UserRepositoryImpl implements UserRepository {
         ResultSet rs;
 
         loadDriver();
+
+        String jdbcURL = properties.getUrl();
+        String login = properties.getLogin();
+        String password = properties.getPassword();
 
         try {
             connection = DriverManager.getConnection(jdbcURL, login, password);
