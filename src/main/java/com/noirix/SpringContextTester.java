@@ -25,7 +25,7 @@ public class SpringContextTester {
 
         System.out.println(annotationConfigApplicationContext.getBean("getStringUtils", StringUtils.class).concat("First", "second"));
 
-        UserRepository userRepository = annotationConfigApplicationContext.getBean("userRepositoryImpl", UserRepository.class);
+        UserRepository userRepository = annotationConfigApplicationContext.getBean(UserRepository.class);
 
         for (User user : userRepository.findAll()) {
             System.out.println(user);

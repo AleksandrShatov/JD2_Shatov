@@ -12,6 +12,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.noirix.repository.UserColumn.*;
+
 //@Component
 //@Repository("UserRep")
 @Repository
@@ -25,13 +27,6 @@ public class UserRepositoryImpl implements UserRepository {
     private DatabaseProperties properties;
     // = getAnnotationSpringContext().getBean(DatabaseProperties.class); - will work with @Autowired
     // = getAnnotationSpringContext().getBean("databaseProperties", DatabaseProperties.class); - will work with @Autowired + @Qualifier
-
-    public static final String ID = "id";
-    public static final String NAME = "name";
-    public static final String SURNAME = "surname";
-    public static final String BIRTH_DATE = "birth_date";
-    public static final String LOGIN = "login";
-    public static final String WEIGHT = "weight";
 
     private void loadDriver() {
         try {
