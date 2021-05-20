@@ -10,4 +10,6 @@ public interface UserRepository extends CrudOperations<Long, User> {
 
     Double getUserExpensiveCarPrice(Integer userId);
 
+    void batchInsert(List<User> users);
+
 }

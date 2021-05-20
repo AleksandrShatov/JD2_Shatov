@@ -2,7 +2,6 @@ package com.noirix;
 
 import com.noirix.domain.User;
 import com.noirix.repository.UserRepository;
-import com.noirix.util.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -23,7 +22,7 @@ public class SpringContextTester {
 
         //UserRepository userRepository = annotationConfigApplicationContext.getBean(UserRepository.class);
 
-        System.out.println(annotationConfigApplicationContext.getBean("getStringUtils", StringUtils.class).concat("First", "second"));
+        //System.out.println(annotationConfigApplicationContext.getBean("getStringUtils", StringUtils.class).concat("First", "second"));
 
         UserRepository userRepository = annotationConfigApplicationContext.getBean(UserRepository.class);
 
@@ -31,11 +30,20 @@ public class SpringContextTester {
             System.out.println(user);
         }
 
+
+//        UserGenerator userGenerator = annotationConfigApplicationContext.getBean(UserGenerator.class);
+//
+//        List<User> generatedUsers = userGenerator.generate(100);
+
 //        LocationRepository locationRepository = annotationConfigApplicationContext.getBean("locationRepositoryImpl", LocationRepositoryImpl.class);
 //
 //        for (Location location : locationRepository.findAll()) {
 //            System.out.println(location);
 //        }
+
+        //TODO: check speed of executing
+//        userRepository.batchInsert(generatedUsers);
+//        userRepository.save(generatedUsers);
 
     }
 }

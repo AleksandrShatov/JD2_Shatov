@@ -302,4 +302,19 @@ public class UserRepositoryImpl implements UserRepository {
         }
     }
 
+    @Override
+    public void batchInsert(List<User> users) {
+
+    }
+
+    @Override
+    public void addOne(User entity) {
+
+    }
+
+    @Override
+    public void save(List<User> entities) {
+
+    }
+
 }
