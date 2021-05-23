@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserGenerator {
@@ -23,7 +24,7 @@ public class UserGenerator {
         User user = new User();
         user.setName(RandomStringUtils.randomAlphanumeric(10));
         user.setSurname(RandomStringUtils.randomAlphanumeric(10));
-        user.setLogin(RandomStringUtils.randomAlphanumeric(10));
+        user.setLogin(UUID.randomUUID().toString());
         user.setWeight(RandomUtils.nextFloat(40F, 100F));
         return user;
     }

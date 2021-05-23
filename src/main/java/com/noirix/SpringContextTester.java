@@ -2,8 +2,11 @@ package com.noirix;
 
 import com.noirix.domain.User;
 import com.noirix.repository.UserRepository;
+import com.noirix.util.UserGenerator;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.List;
 
 public class SpringContextTester {
     public static void main(String[] args) {
@@ -26,15 +29,17 @@ public class SpringContextTester {
 
         UserRepository userRepository = annotationConfigApplicationContext.getBean(UserRepository.class);
 
-        for (User user : userRepository.findAll()) {
-            System.out.println(user);
-        }
+//        userRepository.findAll();
+//        userRepository.findAll();
+//        userRepository.findAll();
+//        userRepository.findAll();
+//        userRepository.findAll();
 
-
-//        UserGenerator userGenerator = annotationConfigApplicationContext.getBean(UserGenerator.class);
+//        List<User> all = userRepository.findAll();
 //
-//        List<User> generatedUsers1 = userGenerator.generate(100);
-//        List<User> generatedUsers2 = userGenerator.generate(100);
+//        for (User user : all) {
+//            System.out.println(user);
+//        }
 
 //        LocationRepository locationRepository = annotationConfigApplicationContext.getBean("locationRepositoryImpl", LocationRepositoryImpl.class);
 //
@@ -42,9 +47,14 @@ public class SpringContextTester {
 //            System.out.println(location);
 //        }
 
-//        //TODO: check speed of executing
-//        userRepository.batchInsert(generatedUsers1);
-//        userRepository.save(generatedUsers2);
+        UserGenerator userGenerator = annotationConfigApplicationContext.getBean(UserGenerator.class);
+
+        List<User> generatedUsers1 = userGenerator.generate(100000);
+        List<User> generatedUsers2 = userGenerator.generate(100000);
+
+        //TODO: check speed of executing
+        userRepository.save(generatedUsers2);
+        userRepository.batchInsert(generatedUsers1);
 
     }
 }
