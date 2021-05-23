@@ -33,7 +33,8 @@ public class SpringContextTester {
 
 //        UserGenerator userGenerator = annotationConfigApplicationContext.getBean(UserGenerator.class);
 //
-//        List<User> generatedUsers = userGenerator.generate(100);
+//        List<User> generatedUsers1 = userGenerator.generate(100);
+//        List<User> generatedUsers2 = userGenerator.generate(100);
 
 //        LocationRepository locationRepository = annotationConfigApplicationContext.getBean("locationRepositoryImpl", LocationRepositoryImpl.class);
 //
@@ -41,9 +42,9 @@ public class SpringContextTester {
 //            System.out.println(location);
 //        }
 
-        //TODO: check speed of executing
-//        userRepository.batchInsert(generatedUsers);
-//        userRepository.save(generatedUsers);
+//        //TODO: check speed of executing
+//        userRepository.batchInsert(generatedUsers1);
+//        userRepository.save(generatedUsers2);
 
     }
 }

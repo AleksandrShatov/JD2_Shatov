@@ -30,6 +30,11 @@ public class JdbcTemplateUserRepository implements UserRepository {
     //@Autowired
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+//    public JdbcTemplateUserRepository(JdbcTemplate jdbcTemplate, NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+//        this.jdbcTemplate = jdbcTemplate;
+//        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+//    }
+
 //    @Autowired
 //    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 //        this.jdbcTemplate = jdbcTemplate;
@@ -60,7 +65,7 @@ public class JdbcTemplateUserRepository implements UserRepository {
     public User findOne(Long id) {
         //final String findOneWithWildcard = "select * from users where id = ?";
         //return jdbcTemplate.queryForObject(findOneWithWildcard, new Object[]{id}, this::getUserRowMapper);
-        //return jdbcTemplate.queryForObject(findOneWithWildcard, this::getUserRowMapper, id);
+        //return jdbcTemplate.queryForObject(findOneWithWildcard, this::getUserRowMapper, id); // и далее через запятую все Wildcard-ы в порядке из записи в запросе
 
         final String findOneWithNameParam = "select * from users where id = :blablabla and id = :qweqwe";
 
@@ -128,8 +133,8 @@ public class JdbcTemplateUserRepository implements UserRepository {
     //Criteria API
     //Search Criteria object
     //like '%query%' and like '%query%' and like '%query%'
-    //ElasticSearch
-    //PostgresFTS
+    //ElasticSearch *
+    //PostgresFTS (Full Text Search) *
     @Override
     public List<User> findUsersByQuery(String query) {
         return null;
