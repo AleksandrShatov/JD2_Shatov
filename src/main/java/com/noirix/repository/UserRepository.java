@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserRepository extends CrudOperations<Long, User> {
 
-    List<User> findUsersByQuery(String query);
+    List<User> findUsersByQuery(Integer limit, String query);
 
     Double getUserExpensiveCarPrice(Integer userId);
 

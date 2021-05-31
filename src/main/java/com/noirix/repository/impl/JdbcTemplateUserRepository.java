@@ -136,8 +136,14 @@ public class JdbcTemplateUserRepository implements UserRepository {
     //ElasticSearch *
     //PostgresFTS (Full Text Search) *
     @Override
-    public List<User> findUsersByQuery(String query) {
-        return null;
+    public List<User> findUsersByQuery(Integer limit, String query) {
+        final String searchQuery = "select * from users where name like :query limit :limit";
+
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("query", "%" + query + "%");
+        params.addValue("limit", limit);
+
+        return namedParameterJdbcTemplate.query(searchQuery, params, this::getUserRowMapper);
     }
 
     @Override

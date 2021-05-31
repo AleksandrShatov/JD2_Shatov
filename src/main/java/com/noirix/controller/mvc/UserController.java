@@ -6,9 +6,7 @@ import com.noirix.repository.UserRepository;
 import com.noirix.util.UserGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Collections;
@@ -31,6 +29,14 @@ public class UserController {
 
     }
 
+    //GET + /search?limit=100&query=a
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public ModelAndView userSearch(@RequestParam Integer limit, @RequestParam String query) {
+
+        List<User> users = userRepository.findUsersByQuery(limit, query);
+        return new ModelAndView("bye", Collections.singletonMap("users", users));
+    }
+
     //POST localhost:8080/JD2_Shatov/users?login=slavka&weight=90
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     //Jackson -> Spring REST -> object to JSON -> JSON to Object
@@ -47,5 +53,12 @@ public class UserController {
 
         List<User> users = userRepository.findAll();
         return new ModelAndView("bye", Collections.singletonMap("users", users));
+    }
+
+    //POST localhost:8080/studentsdemo/users/generate/100
+    @RequestMapping(value = "/users/generate/{usersCount}", method = RequestMethod.POST)
+    public void generateUsers(@PathVariable("usersCount") Integer count) {
+        List<User> generateUsers = userGenerator.generate(count);
+        userRepository.batchInsert(generateUsers);
     }
 }

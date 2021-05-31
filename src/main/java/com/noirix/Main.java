@@ -61,7 +61,8 @@ public class Main {
         // Find users by Query
         System.out.println("Find users by Query");
         String query = "select * from users where id > 10 and name like '%es%'";
-        for (User user : userRepository.findUsersByQuery(query)) {
+        Integer limit = 7;
+        for (User user : userRepository.findUsersByQuery(limit, query)) {
             System.out.println(user);
         }
 

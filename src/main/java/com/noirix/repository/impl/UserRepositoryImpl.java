@@ -232,7 +232,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public List<User> findUsersByQuery(String query) {
+    public List<User> findUsersByQuery(Integer limit, String query) {
 
         List<User> result = new ArrayList<>();
 
