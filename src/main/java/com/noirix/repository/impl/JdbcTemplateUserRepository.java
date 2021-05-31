@@ -47,7 +47,7 @@ public class JdbcTemplateUserRepository implements UserRepository {
 
     @Override
     public List<User> findAll() {
-        return jdbcTemplate.query("select * from users", this::getUserRowMapper);
+        return jdbcTemplate.query("select * from users order by id desc", this::getUserRowMapper);
     }
 
     private User getUserRowMapper(ResultSet rs, int i) throws SQLException {
