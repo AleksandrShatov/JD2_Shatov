@@ -6,40 +6,38 @@
 
     <servlet>
         <servlet-name>MainServlet</servlet-name>
-        <servlet-class>com.noirix.controller.FrontController</servlet-class>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
-        <url-pattern>/FrontController</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-    <listener>
-        <listener-class>com.noirix.listener.CustomListener</listener-class>
-    </listener>
 
     <!--    localhost:8080/application/FrontController-->
 
-    <servlet>
-        <servlet-name>HelloWeb</servlet-name>
-        <jsp-file>/WEB-INF/jsp/hello.jsp</jsp-file>
-    </servlet>
+    <!--    <servlet>-->
+    <!--        <servlet-name>HelloWeb</servlet-name>-->
+    <!--        <jsp-file>/WEB-INF/jsp/hello.jsp</jsp-file>-->
+    <!--    </servlet>-->
 
-    <servlet>
-        <servlet-name>ByeByeWeb</servlet-name>
-        <jsp-file>/WEB-INF/jsp/bye.jsp</jsp-file>
-    </servlet>
+    <!--    <servlet>-->
+    <!--        <servlet-name>ByeByeWeb</servlet-name>-->
+    <!--        <jsp-file>/WEB-INF/jsp/bye.jsp</jsp-file>-->
+    <!--    </servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>HelloWeb</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
+    <!--    <servlet-mapping>-->
+    <!--        <servlet-name>HelloWeb</servlet-name>-->
+    <!--        <url-pattern>/hello</url-pattern>-->
+    <!--    </servlet-mapping>-->
 
     <!--    localhost:8080/application/hello-->
+    <!--    &lt;!&ndash;    localhost:8080/application/hello&ndash;&gt;-->
 
-    <servlet-mapping>
-        <servlet-name>ByeByeWeb</servlet-name>
-        <url-pattern>/bye</url-pattern>
-    </servlet-mapping>
+    <!--    <servlet-mapping>-->
+    <!--        <servlet-name>ByeByeWeb</servlet-name>-->
+    <!--        <url-pattern>/bye</url-pattern>-->
+    <!--    </servlet-mapping>-->
 
     <filter>
         <filter-name>CharsetFilter</filter-name>
