@@ -57,5 +57,5 @@
         <!--WEB-INF (закрытый доступ, напрямую не вытянуть) -> web.xml -> localhost:8080/myapp/hello-->
         <!--index.html || index.jsp-->
 
-        <!--Serlet = class that operate with http-->
+        <!--Servlet = class that operate with http-->
         <!--Servlet = java class || jsp (.jsp -> .java -> .class -> executing)-->
