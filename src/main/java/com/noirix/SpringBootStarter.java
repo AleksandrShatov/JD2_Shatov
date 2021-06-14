@@ -1,7 +1,6 @@
 package com.noirix;
 
 import com.noirix.beans.ApplicationBeans;
-import com.noirix.beans.DatabaseProperties;
 import com.noirix.beans.GitSecretConfig;
 import com.noirix.beans.SecurityConfig;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +14,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @Import({
         ApplicationBeans.class,
-        DatabaseProperties.class,
         SecurityConfig.class,
         GitSecretConfig.class})
 public class SpringBootStarter {

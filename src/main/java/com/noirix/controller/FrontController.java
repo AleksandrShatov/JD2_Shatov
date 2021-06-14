@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.noirix.controller.command.Commands;
 import com.noirix.domain.User;
 import com.noirix.repository.UserRepository;
-import com.noirix.repository.impl.UserRepositoryImpl;
 import org.apache.commons.io.IOUtils;
 
 import javax.servlet.RequestDispatcher;
@@ -20,7 +19,7 @@ import java.util.Collections;
 //@RestController
 public class FrontController extends HttpServlet {
 
-    private UserRepository userRepository = new UserRepositoryImpl();
+    private UserRepository userRepository = null;
 
     public FrontController() {
         super();
