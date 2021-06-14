@@ -45,7 +45,7 @@ public class UserRestController {
     }
 
     @PostMapping
-    public User createUser(@ModelAttribute UserCreateRequest createRequest) {
+    public User createUser(@ModelAttribute UserCreateRequest createRequest) { // ТАК ДЕЛАТЬ НЕ СТОИТ
         User generatedUser = userGenerator.generate();
         generatedUser.setWeight(createRequest.getWeight());
         generatedUser.setLogin(createRequest.getLogin());

@@ -30,7 +30,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     private void loadDriver() {
         try {
-            Class.forName(properties.getDriverName());
+            Class.forName(properties.getDriver());
         } catch (ClassNotFoundException e) {
             System.err.println("JDBC Driver Cannot be loaded!");
             throw new RuntimeException("JDBC Driver Cannot be loaded!");

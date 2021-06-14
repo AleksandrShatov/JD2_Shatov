@@ -4,17 +4,13 @@ import com.noirix.util.StringUtils;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.sql.DataSource;
 
 @Configuration
-@EnableAspectJAutoProxy(proxyTargetClass = true)
-@EnableWebMvc
 public class ApplicationBeans {
 
     @Bean
@@ -43,7 +39,7 @@ public class ApplicationBeans {
         hikariDataSource.setJdbcUrl(databaseProperties.getUrl());
         hikariDataSource.setUsername(databaseProperties.getLogin());
         hikariDataSource.setPassword(databaseProperties.getPassword());
-        hikariDataSource.setDriverClassName(databaseProperties.getDriverName());
+        hikariDataSource.setDriverClassName(databaseProperties.getDriver());
         hikariDataSource.setMaximumPoolSize(10);
 
         return hikariDataSource;

@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+---
+
+database:
+  driver: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/student_demo
+  login: postgres
+  password: postgres
+
+---
+
+security:
+  secretKey: top_secret_key_hoho!
+
+---
+
+github:
+  secret:
+    repository: "https://github.com/username/studentsdemo.git"
+    token: SOME_TOKEN
+    value: sdf80dsf89687sdf86sdf

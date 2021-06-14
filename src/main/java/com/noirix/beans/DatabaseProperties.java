@@ -1,29 +1,27 @@
+
 package com.noirix.beans;
 
-import lombok.*;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
-@Configuration
-@PropertySource("classpath:database.properties")
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@NoArgsConstructor
+
+@Configuration
+@ConfigurationProperties("database")
 public class DatabaseProperties {
 
-    @Value("${driverName}")
-    private String driverName;
+    private String driver;
 
-    @Value("${url}")
     private String url;
 
-    @Value("${login}")
     private String login;
 
-    @Value("${password}")
     private String password;
-
 }
