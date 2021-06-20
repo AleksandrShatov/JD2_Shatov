@@ -23,8 +23,8 @@ public class LocationGenerator {
         Location location = new Location();
         location.setCountry(RandomStringUtils.randomAlphanumeric(10));
         location.setCity(RandomStringUtils.randomAlphanumeric(10));
-        location.setLatitude(RandomUtils.nextDouble(-90.0, 90.0));
-        location.setLongitude(RandomUtils.nextDouble(-180.0, 180.0));
+        location.setLatitude(RandomUtils.nextDouble(0, 90));
+        location.setLongitude(RandomUtils.nextDouble(0, 180));
         return location;
     }
 }
