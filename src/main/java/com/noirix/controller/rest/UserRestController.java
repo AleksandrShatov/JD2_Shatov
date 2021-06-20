@@ -5,6 +5,9 @@ import com.noirix.controller.requests.UserCreateRequest;
 import com.noirix.domain.User;
 import com.noirix.repository.UserRepository;
 import com.noirix.util.UserGenerator;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +30,10 @@ public class UserRestController {
         return userRepository.findAll();
     }
 
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "Secret-Key", dataType = "string", paramType = "header",
+                    value = "Secret header for secret functionality!! Hoho")
+    })
     @GetMapping("/hello")
     public List<User> securedFindAll(HttpServletRequest request) {
         String secretKey = request.getHeader("Secret-Key");
@@ -53,6 +60,11 @@ public class UserRestController {
         return userRepository.save(generatedUser);
     }
 
+    @ApiOperation(value = "Generate auto users in system")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "usersCount", dataType = "string", paramType = "path",
+                    value = "Count of generated users", required = true, defaultValue = "100")
+    })
     @PostMapping("/generate/{usersCount}")
     public List<User> generateUsers(@PathVariable("usersCount") Integer count) {
         throw new RuntimeException("Haha!");
