@@ -1,17 +1,21 @@
 package com.noirix.controller.requests;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@ApiOperation(value = "Class for creating user entity")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserCreateRequest {
 
-    public String name;
+    private String name;
 
-    public String surname;
+    private String surname;
 
-    public String login;
+    private String login;
 
-    public float weight;
+    private float weight;
 }
