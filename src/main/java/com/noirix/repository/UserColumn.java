@@ -7,4 +7,5 @@ public interface UserColumn {
     String BIRTH_DATE = "birth_date";
     String LOGIN = "login";
     String WEIGHT = "weight";
+    String PASSWORD = "password";
 }

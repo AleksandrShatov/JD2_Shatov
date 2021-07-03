@@ -19,6 +19,7 @@ public class User {
     private Date birthDate = new Date(System.currentTimeMillis());
     private String login;
     private Float weight;
+    private String password;
 
     public User(Long id, String name, String surname) {
         this.id = id;

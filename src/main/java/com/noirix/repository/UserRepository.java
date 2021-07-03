@@ -1,5 +1,6 @@
 package com.noirix.repository;
 
+import com.noirix.domain.Role;
 import com.noirix.domain.User;
 
 import java.util.List;
@@ -11,5 +12,9 @@ public interface UserRepository extends CrudOperations<Long, User> {
     Double getUserExpensiveCarPrice(Integer userId);
 
     void batchInsert(List<User> users);
+
+    void saveUserRoles(User user, List<Role> userRoles);
+
+    User findByLoginAndPassword(String login, String password);
 
 }
