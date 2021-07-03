@@ -34,3 +34,7 @@ github:
     repository: "https://github.com/username/studentsdemo.git"
     token: SOME_TOKEN
     value: sdf80dsf89687sdf86sdf
+
+jwtconfig:
+  secret: secret
+  expiration: 60000

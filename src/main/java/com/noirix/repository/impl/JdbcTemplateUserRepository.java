@@ -191,8 +191,18 @@ public class JdbcTemplateUserRepository implements UserRepository {
         final String searchQuery = "select * from users where login = :login and password = :password";
 
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("login", password);
-        params.addValue("password", login);
+        params.addValue("password", password);
+        params.addValue("login", login);
+
+        return namedParameterJdbcTemplate.queryForObject(searchQuery, params, this::getUserRowMapper);
+    }
+
+    @Override
+    public User findByLogin(String login) {
+        final String searchQuery = "select * from users where login = :login";
+
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("login", login);
 
         return namedParameterJdbcTemplate.queryForObject(searchQuery, params, this::getUserRowMapper);
     }
