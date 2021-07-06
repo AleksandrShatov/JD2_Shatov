@@ -4,13 +4,16 @@ import com.noirix.beans.SecurityConfig;
 import com.noirix.controller.requests.UserCreateRequest;
 import com.noirix.domain.User;
 import com.noirix.repository.UserRepository;
+import com.noirix.util.PrincipalUtils;
 import com.noirix.util.UserGenerator;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.Collections;
 import java.util.List;
 
@@ -24,8 +27,12 @@ import java.util.List;
 public class UserRestController {
 
     private final UserRepository userRepository;
+
     private final UserGenerator userGenerator;
+
     private final SecurityConfig config;
+
+    private final PrincipalUtils principalUtils;
 
     @GetMapping
     public List<User> findAll() {
@@ -34,14 +41,16 @@ public class UserRestController {
 
     @ApiImplicitParams({
             @ApiImplicitParam(name = "Secret-Key", dataType = "string", paramType = "header",
-                    value = "Secret header for secret functionality!! Hoho")
+                    value = "Secret header for secret functionality!! Hoho"),
+            @ApiImplicitParam(name = "X-Auth-Token", value = "token", required = true, dataType = "string", paramType = "header")
     })
     @GetMapping("/hello")
-    public List<User> securedFindAll(HttpServletRequest request) {
+    public List<User> securedFindAll(HttpServletRequest request, @ApiIgnore Principal principal) {
+        String userName = principalUtils.getUsername(principal);
         String secretKey = request.getHeader("Secret-Key");
 
         if (StringUtils.isNotBlank(secretKey) && secretKey.equals(config.getSecretKey())) {
-            return userRepository.findAll();
+            return Collections.singletonList(userRepository.findByLogin(userName));
         } else {
             //throw new UnauthorizedException();
             return Collections.emptyList();
