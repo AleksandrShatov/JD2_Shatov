@@ -18,4 +18,6 @@ public class UserCreateRequest {
     private String login;
 
     private float weight;
+
+    private String password;
 }

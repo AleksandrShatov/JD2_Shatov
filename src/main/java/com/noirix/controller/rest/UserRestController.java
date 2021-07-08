@@ -1,7 +1,6 @@
 package com.noirix.controller.rest;
 
 import com.noirix.beans.SecurityConfig;
-import com.noirix.controller.requests.UserCreateRequest;
 import com.noirix.domain.User;
 import com.noirix.repository.UserRepository;
 import com.noirix.util.PrincipalUtils;
@@ -64,18 +63,6 @@ public class UserRestController {
     @GetMapping("/search")
     public List<User> userSearch(@RequestParam Integer limit, @RequestParam String query) {
         return userRepository.findUsersByQuery(limit, query);
-    }
-
-    @ApiOperation(value = "Creating one user")
-    @PostMapping
-    public User createUser(@RequestBody UserCreateRequest createRequest) {
-        User generatedUser = userGenerator.generate();
-        generatedUser.setWeight(createRequest.getWeight());
-        generatedUser.setLogin(createRequest.getLogin());
-        generatedUser.setName(createRequest.getName());
-        generatedUser.setSurname(createRequest.getSurname());
-
-        return userRepository.save(generatedUser);
     }
 
     @ApiOperation(value = "Generate auto users in system")

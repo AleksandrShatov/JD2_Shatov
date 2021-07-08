@@ -79,8 +79,8 @@ public class JdbcTemplateUserRepository implements UserRepository {
 
     @Override
     public User save(User entity) {
-        final String createQuery = "insert into users (name, surname, birth_date, login, weight) " +
-                "values (:name, :surname, :birthDate, :login, :weight);";
+        final String createQuery = "insert into users (name, surname, birth_date, login, weight, password) " +
+                "values (:name, :surname, :birthDate, :login, :weight, :password);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
