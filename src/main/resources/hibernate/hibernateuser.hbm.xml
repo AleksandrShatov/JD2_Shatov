@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.noirix.domain.hibernate.HibernateUser" table="users">
+
+        <id name="id" type="long" column="id">
+            <generator class="identity"/>
+        </id>
+        <property name="name" column="user_name" type="string"/> <!--size 200-->
+        <property name="surname" column="user_surname" type="string"/> <!--size 200-->
+        <property name="login" column="login" type="string"/> <!--size 200-->
+        <property name="password" column="password" type="string"/> <!--size 200-->
+        <property name="weight" column="weight" type="float"/>
+
+        <property name="birthDate" column="birth_date" type="date"/> <!--@Temporal(TemporalType.DATE)-->
+
+        <property name="gender" column="gender">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.noirix.domain.Gender</param>
+                <param name="useNamed">true</param>
+                <param name="type">STRING</param>
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>

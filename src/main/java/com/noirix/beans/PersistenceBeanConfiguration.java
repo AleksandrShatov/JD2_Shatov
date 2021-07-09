@@ -19,6 +19,7 @@ public class PersistenceBeanConfiguration {
 
         // Package contain entity classes
         factoryBean.setPackagesToScan("com.noirix");
+//        factoryBean.setMappingResources("hibernate");
         factoryBean.setDataSource(dataSource);
         factoryBean.setHibernateProperties(getAdditionalProperties());
         factoryBean.afterPropertiesSet();
