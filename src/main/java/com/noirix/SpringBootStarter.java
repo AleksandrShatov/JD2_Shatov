@@ -1,9 +1,6 @@
 package com.noirix;
 
-import com.noirix.beans.ApplicationBeans;
-import com.noirix.beans.GitSecretConfig;
-import com.noirix.beans.SecurityConfig;
-import com.noirix.beans.SwaggerConfig;
+import com.noirix.beans.*;
 import com.noirix.security.configuration.WebSecurityConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Import({
         ApplicationBeans.class,
         SwaggerConfig.class,
+        PersistenceBeanConfiguration.class,
         WebSecurityConfiguration.class,
         SecurityConfig.class,
         GitSecretConfig.class})
