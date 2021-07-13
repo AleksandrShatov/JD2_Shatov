@@ -2,6 +2,7 @@ package com.noirix.domain.hibernate;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.noirix.domain.Gender;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,7 +18,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(exclude = {
-        "roles"
+        "roles", "car"
 })
 public class HibernateUser {
 
@@ -47,8 +48,9 @@ public class HibernateUser {
     @Column
     private String password;
 
-//    @OneToMany
-//    private Set<HibernateCar> cars = new HashSet<>();
+    @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private HibernateCar car;
 
     @ManyToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnoreProperties("users")
