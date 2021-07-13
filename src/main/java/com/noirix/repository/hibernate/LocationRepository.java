@@ -1,55 +1,56 @@
-package com.noirix.repository.impl;
+package com.noirix.repository.hibernate;
 
-import com.noirix.domain.hibernate.HibernateUser;
-import com.noirix.repository.HibernateUserRepository;
+
+import com.noirix.domain.hibernate.HibernateLocation;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
 import java.util.List;
 
 @Repository
+@Primary
 @RequiredArgsConstructor
-public class HibernateRepository implements HibernateUserRepository {
+public class LocationRepository implements HibernateLocationRepository {
 
     @Autowired
     @Qualifier("sessionFactory")
     private SessionFactory sessionFactory;
 
-
     @Override
-    public List<HibernateUser> findAll() {
+    public List<HibernateLocation> findAll() {
         try (Session session = sessionFactory.openSession()) {
-            return Collections.singletonList(session.find(HibernateUser.class, 622326L));
+            return Collections.singletonList(session.find(HibernateLocation.class, 1L));
         }
     }
 
     @Override
-    public HibernateUser findOne(Long id) {
+    public HibernateLocation findOne(Long id) {
         return null;
     }
 
     @Override
-    public HibernateUser save(HibernateUser entity) {
+    public HibernateLocation save(HibernateLocation entity) {
         return null;
     }
 
     @Override
-    public void addOne(HibernateUser entity) {
+    public void addOne(HibernateLocation entity) {
 
     }
 
     @Override
-    public void save(List<HibernateUser> entities) {
+    public void save(List<HibernateLocation> entities) {
 
     }
 
     @Override
-    public HibernateUser update(HibernateUser entity) {
+    public HibernateLocation update(HibernateLocation entity) {
         return null;
     }
 

@@ -1,7 +1,7 @@
 package com.noirix.controller.rest;
 
 import com.noirix.domain.hibernate.HibernateUser;
-import com.noirix.repository.HibernateUserRepository;
+import com.noirix.repository.hibernate.HibernateUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -4,7 +4,6 @@ import com.noirix.domain.Location;
 import com.noirix.repository.LocationColumn;
 import com.noirix.repository.LocationRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -20,7 +19,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Repository
-@Primary
+//@Primary
 @RequiredArgsConstructor
 public class LocationRepositoryImpl implements LocationRepository {
 

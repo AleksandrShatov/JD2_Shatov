@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 public class HibernateUser {
 
     @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column
@@ -38,4 +39,7 @@ public class HibernateUser {
 
     @Column
     private String password;
+
+//    @OneToMany
+//    private Set<HibernateCar> cars = new HashSet<>();
 }
