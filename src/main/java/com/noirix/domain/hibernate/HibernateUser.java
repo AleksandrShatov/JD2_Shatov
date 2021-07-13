@@ -23,7 +23,7 @@ import java.util.Set;
 public class HibernateUser {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column

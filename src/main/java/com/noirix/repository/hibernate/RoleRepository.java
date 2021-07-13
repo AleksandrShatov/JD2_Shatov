@@ -4,6 +4,7 @@ import com.noirix.domain.hibernate.HibernateRoles;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -33,7 +34,13 @@ public class RoleRepository implements HibernateRoleRepository {
 
     @Override
     public HibernateRoles save(HibernateRoles entity) {
-        return null;
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            Long roleId = (Long) session.save(entity);
+            transaction.commit();
+            return findOne(roleId);
+        }
     }
 
     @Override
