@@ -1,6 +1,6 @@
 package com.noirix.repository.hibernate;
 
-import com.noirix.domain.hibernate.HibernateUser;
+import com.noirix.domain.hibernate.HibernateRoles;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,41 +13,41 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class HibernateRepository implements HibernateUserRepository {
+public class RoleRepository implements HibernateRoleRepository {
 
     @Autowired
     @Qualifier("sessionFactory")
     private SessionFactory sessionFactory;
 
     @Override
-    public List<HibernateUser> findAll() {
+    public List<HibernateRoles> findAll() {
         try (Session session = sessionFactory.openSession()) {
-            return Collections.singletonList(session.find(HibernateUser.class, 622432L));
+            return Collections.singletonList(session.find(HibernateRoles.class, 1L));
         }
     }
 
     @Override
-    public HibernateUser findOne(Long id) {
+    public HibernateRoles findOne(Long id) {
         return null;
     }
 
     @Override
-    public HibernateUser save(HibernateUser entity) {
+    public HibernateRoles save(HibernateRoles entity) {
         return null;
     }
 
     @Override
-    public void addOne(HibernateUser entity) {
+    public void addOne(HibernateRoles entity) {
 
     }
 
     @Override
-    public void save(List<HibernateUser> entities) {
+    public void save(List<HibernateRoles> entities) {
 
     }
 
     @Override
-    public HibernateUser update(HibernateUser entity) {
+    public HibernateRoles update(HibernateRoles entity) {
         return null;
     }
 
