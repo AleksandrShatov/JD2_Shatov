@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,6 +20,10 @@ public class RoleRepository implements HibernateRoleRepository {
     @Autowired
     @Qualifier("sessionFactory")
     private SessionFactory sessionFactory;
+
+    @Autowired
+    @Qualifier("entityManagerFactory")
+    private EntityManager entityManager;
 
     @Override
     public List<HibernateRoles> findAll() {
@@ -41,6 +46,12 @@ public class RoleRepository implements HibernateRoleRepository {
             transaction.commit();
             return findOne(roleId);
         }
+
+//        EntityTransaction transaction = entityManager.getTransaction();
+//        transaction.begin();
+//        entityManager.persist(entity);
+//        transaction.commit();
+//        return entityManager.find(HibernateRoles.class, entity.getId());
     }
 
     @Override
