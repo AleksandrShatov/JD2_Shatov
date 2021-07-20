@@ -26,10 +26,10 @@ public class HibernateUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "surname")
     private String surname;
 
     @Column(name = "birth_date")
