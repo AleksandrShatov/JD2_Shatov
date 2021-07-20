@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -25,7 +24,10 @@ public class LocationRepository implements HibernateLocationRepository {
     @Override
     public List<HibernateLocation> findAll() {
         try (Session session = sessionFactory.openSession()) {
-            return Collections.singletonList(session.find(HibernateLocation.class, 1L));
+//            return Collections.singletonList(session.find(HibernateLocation.class, 1L));
+            return session.createQuery(
+                    "select l from HibernateLocation l inner join l.dealers as d where d.id > 1",
+                    HibernateLocation.class).getResultList();
         }
     }
 
@@ -57,5 +59,13 @@ public class LocationRepository implements HibernateLocationRepository {
     @Override
     public void delete(Long id) {
 
+    }
+
+    @Override
+    public Object strangeSearch() {
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery(
+                    "select minute(u.birthDate), upper(u.login), coalesce(u.password, 'sdfsdf') from HibernateUser u where u.password is null").list();
+        }
     }
 }

@@ -21,4 +21,10 @@ public class HibernateLocationController {
         System.out.println("In location rest controller");
         return locationRepository.findAll();
     }
+
+    @GetMapping("/search")
+    public Object search() {
+        System.out.println("In location rest controller");
+        return locationRepository.strangeSearch();
+    }
 }

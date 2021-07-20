@@ -16,7 +16,7 @@ import java.util.Set;
 @EqualsAndHashCode(exclude = {
         "users"
 })
-public class HibernateRoles {
+public class HibernateRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
