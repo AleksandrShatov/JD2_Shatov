@@ -1,5 +1,6 @@
 package com.noirix.repository.hibernate;
 
+import com.noirix.controller.requests.SearchRequest;
 import com.noirix.domain.hibernate.HibernateUser;
 import com.noirix.domain.hibernate.HibernateUser_;
 import lombok.RequiredArgsConstructor;
@@ -66,7 +67,7 @@ public class HibernateRepository implements HibernateUserRepository {
     }
 
     @Override
-    public List<HibernateUser> criteriaApiSearch() {
+    public List<HibernateUser> criteriaApiSearch(SearchRequest request) {
 //1. Get Builder for Criteria object
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<HibernateUser> query = cb.createQuery(HibernateUser.class); //here select, where, orderBy, having
@@ -104,8 +105,8 @@ public class HibernateRepository implements HibernateUserRepository {
                 .orderBy(cb.desc(id));
 
         TypedQuery<HibernateUser> resultQuery = entityManager.createQuery(query); //prepared statement on hql
-        resultQuery.setParameter(param, StringUtils.join("%", "a", "%"));
-        resultQuery.setParameter(userSearchParam, 1L);
+        resultQuery.setParameter(param, StringUtils.join("%", request.getQuery(), "%"));
+        resultQuery.setParameter(userSearchParam, request.getId());
         return resultQuery.getResultList();
     }
 }

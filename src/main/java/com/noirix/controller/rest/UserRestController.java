@@ -77,10 +77,10 @@ public class UserRestController {
     })
     @PostMapping("/generate/{usersCount}")
     public List<User> generateUsers(@PathVariable("usersCount") Integer count) {
-        throw new RuntimeException("Haha!");
-//        List<User> generateUsers = userGenerator.generate(count);
-//        userRepository.batchInsert(generateUsers);
-//
-//        return userRepository.findAll();
+//        throw new RuntimeException("Haha!");
+        List<User> generateUsers = userGenerator.generate(count);
+        userRepository.batchInsert(generateUsers);
+
+        return userRepository.findAll();
     }
 }

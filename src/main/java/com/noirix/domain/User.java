@@ -21,6 +21,8 @@ public class User {
     private Float weight;
     private String password;
 
+    private String gender = Gender.NOT_SELECTED.toString();
+
     public User(Long id, String name, String surname) {
         this.id = id;
         this.name = name;

@@ -26,6 +26,6 @@ public class HibernateUserController {
 
     @GetMapping("/search")
     public List<HibernateUser> search(@ModelAttribute SearchRequest request) {
-        return hibernateUserRepository.criteriaApiSearch();
+        return hibernateUserRepository.criteriaApiSearch(request);
     }
 }

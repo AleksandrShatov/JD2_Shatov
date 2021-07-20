@@ -26,6 +26,7 @@ public class UserGenerator {
         user.setSurname(RandomStringUtils.randomAlphanumeric(10));
         user.setLogin(UUID.randomUUID().toString());
         user.setWeight(RandomUtils.nextFloat(40F, 100F));
+        user.setPassword(RandomStringUtils.randomAlphanumeric(10));
         return user;
     }
 }
