@@ -7,6 +7,7 @@ import com.noirix.domain.Gender;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NamedQuery;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -20,6 +21,7 @@ import java.util.Set;
 @EqualsAndHashCode(exclude = {
         "roles", "car"
 })
+@NamedQuery(name = "HibernateUser_findWithIdRestriction", query = "select h from HibernateUser  h where h.id > :id")
 public class HibernateUser {
 
     @Id
