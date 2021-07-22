@@ -21,7 +21,7 @@ import java.util.Set;
 @EqualsAndHashCode(exclude = {
         "roles", "car"
 })
-@NamedQuery(name = "HibernateUser_findWithIdRestriction", query = "select h from HibernateUser  h where h.id > :id")
+@NamedQuery(name = "HibernateUser_findWithIdRestriction", query = "select h from HibernateUser h where h.id > :id")
 public class HibernateUser {
 
     @Id

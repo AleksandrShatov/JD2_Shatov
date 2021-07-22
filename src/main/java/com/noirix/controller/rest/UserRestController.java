@@ -2,12 +2,17 @@ package com.noirix.controller.rest;
 
 import com.noirix.beans.SecurityConfig;
 import com.noirix.domain.User;
+import com.noirix.domain.hibernate.HibernateUser;
 import com.noirix.repository.UserRepository;
+import com.noirix.repository.springdata.UserDataRepository;
 import com.noirix.util.PrincipalUtils;
 import com.noirix.util.UserGenerator;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -33,10 +38,24 @@ public class UserRestController {
 
     private final PrincipalUtils principalUtils;
 
+    private final UserDataRepository userDataRepository;
+
+//    @GetMapping
+//    public List<User> findAll() {
+//        System.out.println("In rest controller");
+//        return userRepository.findAll();
+//    }
+
     @GetMapping
-    public List<User> findAll() {
+    public Page<HibernateUser> findAll() {
         System.out.println("In rest controller");
-        return userRepository.findAll();
+        return userDataRepository.findAll(PageRequest.of(1, 10, Sort.by(Sort.Direction.DESC, "id")));
+    }
+
+    @GetMapping("/test/{userId}")
+    public List<Object[]> searchTest(@PathVariable Long userId) {
+        System.out.println("In rest controller");
+        return userDataRepository.findByIdHQLVersionSimplified2(userId);
     }
 
     @ApiImplicitParams({
