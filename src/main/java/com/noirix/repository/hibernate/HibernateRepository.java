@@ -82,8 +82,8 @@ public class HibernateRepository implements HibernateUserRepository {
 
         /*Provide access to fields in class that mapped to columns*/
         Expression<Long> id = root.get(HibernateUser_.id);
-        Expression<String> name = root.get(HibernateUser_.name);
-        Expression<String> surname = root.get(HibernateUser_.surname);
+        Expression<String> name = root.get(HibernateUser_.userCredentials.getName());
+        Expression<String> surname = root.get(HibernateUser_.userCredentials.getName()); // TODO: getSurname() don't work
 
         /*SQL Query customizing*/
         query

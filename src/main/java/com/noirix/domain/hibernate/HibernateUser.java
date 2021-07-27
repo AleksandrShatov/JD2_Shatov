@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NamedQuery;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Set;
 
@@ -29,27 +28,27 @@ public class HibernateUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "surname")
-    private String surname;
-
-    @Column(name = "birth_date")
-    private LocalDateTime birthDate;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "name")),
+            @AttributeOverride(name = "surname", column = @Column(name = "surname")),
+            @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date")),
+    })
+    private UserCredentials userCredentials;
 
     @Column
     @Enumerated(EnumType.STRING)
     private Gender gender = Gender.NOT_SELECTED;
 
-    @Column
-    private String login;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "login", column = @Column(name = "login")),
+            @AttributeOverride(name = "password", column = @Column(name = "password"))
+    })
+    private HibernateUserCredentials credentials;
 
     @Column
     private Float weight;
-
-    @Column
-    private String password;
 
     @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference

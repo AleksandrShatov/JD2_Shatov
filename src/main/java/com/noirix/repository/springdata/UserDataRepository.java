@@ -15,14 +15,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface UserDataRepository extends CrudRepository<HibernateUser, Long>, PagingAndSortingRepository<HibernateUser, Long>, JpaRepository<HibernateUser, Long> {
 
     List<HibernateUser> findByIdIn(List<Long> ids);
 
-    Optional<HibernateUser> findByNameAndLogin(String name, String login);
+//    Optional<HibernateUser> findByNameAndLogin(String name, String login);
 
     @Cacheable("users")
     @Query(value = "select u from HibernateUser u where u.id > :userID")
@@ -32,10 +31,10 @@ public interface UserDataRepository extends CrudRepository<HibernateUser, Long>,
     List<HibernateUser> findByIdSQLVersion(@Param("userID") Long id);
 
     // В данном случае нужно будет самостоятельно парсить и обрабатывать данный массив
-    @Query(value = "select u.id, u.name from HibernateUser u where u.id = :userID")
+    @Query(value = "select u.id, u.userCredentials.name from HibernateUser u where u.id = :userID")
     Object[] findByIdHQLVersionSimplified(@Param("userID") Long id);
 
-    @Query(value = "select u.id, u.name from HibernateUser u where u.id > :userID")
+    @Query(value = "select u.id, u.userCredentials.name from HibernateUser u where u.id > :userID")
     List<Object[]> findByIdHQLVersionSimplified2(@Param("userID") Long id);
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, rollbackFor = SQLException.class)
