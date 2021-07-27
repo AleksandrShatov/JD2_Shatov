@@ -18,6 +18,7 @@ import java.util.Set;
 @Table(name = "users")
 @Data
 @NoArgsConstructor
+//@Cacheable("users") // будут сохранятсе юзеры в кэше по любым запросам
 @EqualsAndHashCode(exclude = {
         "roles", "car"
 })

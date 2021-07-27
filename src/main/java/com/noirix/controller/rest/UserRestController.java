@@ -53,9 +53,9 @@ public class UserRestController {
     }
 
     @GetMapping("/test/{userId}")
-    public List<Object[]> searchTest(@PathVariable Long userId) {
+    public List<HibernateUser> searchTest(@PathVariable Long userId) {
         System.out.println("In rest controller");
-        return userDataRepository.findByIdHQLVersionSimplified2(userId);
+        return userDataRepository.findByIdHQLVersion(userId);
     }
 
     @ApiImplicitParams({
